@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.View.BearsPage"
+             xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
+             xmlns:view="clr-namespace:MauiApp1.View"
+             xmlns:model="clr-namespace:MauiApp1.Model"
+             x:DataType="viewmodel:AnimalsViewModel"
+             Title="BearsPage">
+    <Grid RowDefinitions="Auto, *, Auto">
+        <Label 
+        Text="Bears Page"
+        VerticalOptions="Center" 
+        HorizontalOptions="Center" />
+        <CollectionView 
+        BackgroundColor="Transparent" 
+        Grid.ColumnSpan="2"
+        ItemsSource="{Binding Animals}"
+        SelectionMode="None"
+        Grid.Row="1"
+        >
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Animal">
+                    <Grid Padding="10">
+                        <Border HeightRequest="125" Padding="0" Style="{StaticResource CardView}">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}" 
+                                                  Command="{Binding x:DataType='viewmodel:AnimalsViewModel',Source={RelativeSource AncestorType={x:Type viewmodel:AnimalsViewModel}}, Path=GoToDetailsCommand}"/>
+                            </Border.GestureRecognizers>
+
+                            <Grid Padding="10" ColumnDefinitions="125, *">
+                                <Image Source="{Binding Image}" Grid.Column="0" WidthRequest="125" HeightRequest="125" Aspect="AspectFill"/>
+                                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Padding="10">
+                                    <Label Text="{Binding Name}" Style="{StaticResource LargeLabel}"/>
+                                    <Label Text="{Binding Location}" Style="{StaticResource MediumLabel}"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+        <Button Grid.Row="2" Grid.Column="1" Text="Find Closest" Command="{Binding FindClosestCommand }"/>
+        <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                       IsVisible="{Binding IsBusy}" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center" 
+                       Grid.RowSpan="2"
+                       />
+    </Grid>
+</ContentPage>

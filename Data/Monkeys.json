@@ -1,0 +1,38 @@
+[
+  {
+    "Name": "Baboon",
+    "Location": "Africa & Asia",
+    "Details": "Baboons are African and Arabian Old World monkeys belonging to the genus Papio, part of the subfamily Cercopithecinae.",
+    "Image": "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/baboon.jpg",
+    "Population": 10000,
+    "Latitude": -8.783195,
+    "Longitude": 34.508523
+  },
+  {
+    "Name": "Capuchin Monkey",
+    "Location": "Central & South America",
+    "Details": "The capuchin monkeys are New World monkeys of the subfamily Cebinae. They are known for their intelligence and tool use.",
+    "Image": "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/capuchin.jpg",
+    "Population": 23000,
+    "Latitude": 12.769013,
+    "Longitude": -85.602364
+  },
+  {
+    "Name": "Mandrill",
+    "Location": "Central Africa",
+    "Details": "Mandrills are the largest species of monkey and are closely related to baboons and drills.",
+    "Image": "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/mandrill.jpg",
+    "Population": 15000,
+    "Latitude": -1.406108,
+    "Longitude": 15.408526
+  },
+  {
+    "Name": "Howler Monkey",
+    "Location": "South America",
+    "Details": "Howler monkeys are among the largest New World monkeys and are known for their loud vocalizations.",
+    "Image": "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/howler.jpg",
+    "Population": 18000,
+    "Latitude": -3.465305,
+    "Longitude": -62.215881
+  }
+]

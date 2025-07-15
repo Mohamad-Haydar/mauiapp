@@ -1,0 +1,38 @@
+[
+  {
+    "Name": "Grizzly Bear",
+    "Location": "North America",
+    "Details": "Grizzly bears are large brown bears found in North America, known for their strength and hibernation.",
+    "Image": "https://example.com/images/grizzly.jpg",
+    "Population": 55000,
+    "Latitude": 58.301598,
+    "Longitude": -134.420212
+  },
+  {
+    "Name": "Polar Bear",
+    "Location": "Arctic Circle",
+    "Details": "Polar bears are native to the Arctic Circle and are excellent swimmers, primarily hunting seals.",
+    "Image": "https://example.com/images/polar.jpg",
+    "Population": 26000,
+    "Latitude": 82.5018,
+    "Longitude": -62.3481
+  },
+  {
+    "Name": "American Black Bear",
+    "Location": "North America",
+    "Details": "The American black bear is the most common bear species in North America.",
+    "Image": "https://example.com/images/blackbear.jpg",
+    "Population": 850000,
+    "Latitude": 45.4215,
+    "Longitude": -75.6972
+  },
+  {
+    "Name": "Asian Black Bear",
+    "Location": "East Asia",
+    "Details": "Asian black bears are medium-sized bears with a distinctive white chest patch.",
+    "Image": "https://example.com/images/asianblackbear.jpg",
+    "Population": 50000,
+    "Latitude": 35.8617,
+    "Longitude": 104.1954
+  }
+]

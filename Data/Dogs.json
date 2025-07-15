@@ -1,0 +1,38 @@
+[
+  {
+    "Name": "Labrador Retriever",
+    "Location": "Worldwide",
+    "Details": "Labradors are one of the most popular dog breeds, known for their friendliness and intelligence.",
+    "Image": "https://example.com/images/labrador.jpg",
+    "Population": 3000000,
+    "Latitude": 40.7128,
+    "Longitude": -74.0060
+  },
+  {
+    "Name": "German Shepherd",
+    "Location": "Worldwide",
+    "Details": "German Shepherds are known for their loyalty and are often used in police and military work.",
+    "Image": "https://example.com/images/germanshepherd.jpg",
+    "Population": 2000000,
+    "Latitude": 48.1351,
+    "Longitude": 11.5820
+  },
+  {
+    "Name": "Siberian Husky",
+    "Location": "Russia & North America",
+    "Details": "Siberian Huskies are known for their thick coat and sled-pulling history in cold climates.",
+    "Image": "https://example.com/images/husky.jpg",
+    "Population": 800000,
+    "Latitude": 64.8378,
+    "Longitude": -147.7164
+  },
+  {
+    "Name": "Beagle",
+    "Location": "Europe & North America",
+    "Details": "Beagles are small scent hounds originally bred for hunting hare and known for their tracking skills.",
+    "Image": "https://example.com/images/beagle.jpg",
+    "Population": 1000000,
+    "Latitude": 51.5074,
+    "Longitude": -0.1278
+  }
+]

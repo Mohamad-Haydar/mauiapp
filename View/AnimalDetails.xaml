@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.View.AnimalDetails"
+             xmlns:model="clr-namespace:MauiApp1.Model"
+             xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
+             x:DataType="viewmodel:AnimalDetailsViewModel"
+             Title="{Binding Animal.Name}">
+    <Grid RowDefinitions="160,Auto, *, Auto" ColumnDefinitions="*,*" Padding="0,0,0,10">
+        <BoxView BackgroundColor="Orange" HeightRequest="160" Grid.ColumnSpan="2" />
+        <Frame
+             HeightRequest="160" 
+             WidthRequest="160" 
+             Grid.RowSpan="2"
+             Padding="0" 
+             CornerRadius="80" 
+             HorizontalOptions="Center"
+             IsClippedToBounds="True"
+             Margin="0,80,0,0"  Grid.ColumnSpan="2">
+            <Image Source="{Binding Animal.Image}" 
+                   Aspect="AspectFill" 
+                   HeightRequest="160" 
+                   WidthRequest="160" HorizontalOptions="Center" />
+        </Frame>
+        <VerticalStackLayout Grid.Row="2"  Grid.ColumnSpan="2">
+            <Label Text="{Binding Animal.Name}" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start" 
+                   Margin="10,10,10,0"/>
+
+            <Label Text="{Binding Animal.Details}" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Start" 
+                    Margin="10,10,10,0" />
+        </VerticalStackLayout>
+        <Button Grid.Column="0" Command="{Binding EditDetailsCommand}" Grid.Row="3" Text="Edit" BorderColor="Yellow" CornerRadius="10" WidthRequest="150"/>
+        <Button Grid.Column="1" Command="{Binding OpenInMapCommand}" Grid.Row="3" Text="Find In Map" BorderColor="Yellow" CornerRadius="10" WidthRequest="150" />
+    </Grid>
+</ContentPage>
