@@ -2,6 +2,8 @@
 using MauiApp1.View;
 using MauiApp1.ViewModel;
 using Microsoft.Extensions.Logging;
+using Plugin.Fingerprint;
+using Plugin.Fingerprint.Abstractions;
 
 namespace MauiApp1
 {
@@ -21,6 +23,7 @@ namespace MauiApp1
             builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
             builder.Services.AddSingleton<IGeolocation>(Geolocation.Default);
             builder.Services.AddSingleton<IMap>(Map.Default);
+            builder.Services.AddSingleton<IFingerprint>(CrossFingerprint.Current);
 
 
             builder.Services.AddSingleton<MainPageViewModel>();

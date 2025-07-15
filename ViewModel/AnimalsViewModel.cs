@@ -2,7 +2,7 @@
 using MauiApp1.Model;
 using MauiApp1.Services;
 using MauiApp1.View;
-using System.Collections.Generic;
+using Plugin.Fingerprint.Abstractions;
 using System.Collections.ObjectModel;
 
 namespace MauiApp1.ViewModel
@@ -12,17 +12,20 @@ namespace MauiApp1.ViewModel
         public AnimalService _animalService;
         public IConnectivity Connectivity { get; }
         public IGeolocation Geolocation { get; }
+        public readonly IFingerprint _fingerprint;
+
         private static int count = 0;
 
         public ObservableCollection<Animal> Animals { get; }
 
-        public AnimalsViewModel(AnimalService monkeyService, IConnectivity connectivity, IGeolocation geolocation)
+        public AnimalsViewModel(AnimalService monkeyService, IConnectivity connectivity, IGeolocation geolocation, IFingerprint fingerprint)
         {
             Shell.Current.DisplayAlert("New AnimalsVewModel", "Adding new Animalsviewmodel object nb: " + ++count, "OK");
             _animalService = monkeyService;
             Animals = [];
             Connectivity = connectivity;
             Geolocation = geolocation;
+            _fingerprint = fingerprint;
         }
         public async Task LoadAnimalsAsync(string animalType)
         {
@@ -70,6 +73,30 @@ namespace MauiApp1.ViewModel
         [RelayCommand]
         async Task FindClosestAsync()
         {
+            var availability = await _fingerprint.IsAvailableAsync();
+
+            if (!availability)
+            {
+                await Shell.Current.DisplayAlert("Unavailable", "Fingerprint not available", "OK");
+                return;
+            }
+
+            var request = new AuthenticationRequestConfiguration("Login", "Authenticate with your fingerprint")
+            {
+                FallbackTitle = "Use Pattern",
+                AllowAlternativeAuthentication = true
+            };
+            var result = await _fingerprint.AuthenticateAsync(request);
+            if (result.Authenticated)
+            {
+                await Shell.Current.DisplayAlert("Success", "You are authenticated!", "OK");
+            }
+            else
+            {
+                await Shell.Current.DisplayAlert("Failed", "Authentication failed", "OK");
+            }
+
+
             if (!Connectivity.NetworkAccess.Equals(NetworkAccess.Internet))
             {
                 await Shell.Current.DisplayAlert("No Internet", "Please check your internet connection.", "OK");
