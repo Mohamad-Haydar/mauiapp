@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MauiApp1.Model;
+using System.Threading.Tasks;
 
 namespace MauiApp1.ViewModel
 {
@@ -13,6 +14,8 @@ namespace MauiApp1.ViewModel
         Animal data;
         [ObservableProperty]
         string pageTitle;
+
+
 
         partial void OnAnimalChanged(Animal value)
         {
@@ -30,18 +33,18 @@ namespace MauiApp1.ViewModel
         }
 
         [RelayCommand]
-        async Task UpdateAnimalDetailsAsync()
+        void UpdateAnimalDetailsAsync()
         {
             if (Animal == null || Data == null)
                 return;
             IsBusy = true;
-            Animal.Name = Data.name;
-            Animal.Location = Data.location;
-            Animal.Details = Data.details;
-            Animal.Image = Data.image;
-            Animal.Population = Data.population;
-            Animal.latitude = Data.latitude;
-            Animal.longitude = Data.longitude;
+            Animal.Name = Data.Name;
+            Animal.Location = Data.Location;
+            Animal.Details = Data.Details;
+            Animal.Image = Data.Image;
+            Animal.Population = Data.Population;
+            Animal.Latitude = Data.Latitude;
+            Animal.Longitude = Data.Longitude;
             IsBusy = false;
         }
     }

@@ -25,6 +25,25 @@ namespace MauiApp1.ViewModel
         {
             if (Animal is null)
                 return;
+
+            var result = await Shell.Current.DisplayPromptAsync("Admin access Required", "Enter Admin Code to Continue", 
+                accept: "OK",
+                cancel: "Cancel",
+                maxLength: 20,
+                keyboard: Keyboard.Text);
+
+            if (string.IsNullOrEmpty(result))
+            {
+                await Shell.Current.DisplayAlert("Access Restriction", "You should provide an admin password to enter this page", "Ok");
+                return;
+            }
+
+            if (result != "123")
+            {
+                await Shell.Current.DisplayAlert("Access Restriction", "Your code is wrong", "Ok");
+                return;
+            }
+
             await Shell.Current.GoToAsync(nameof(EditAnimal), true, new Dictionary<string, object>
             {
                 { nameof(Animal), Animal }
